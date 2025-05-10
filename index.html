@@ -13,7 +13,13 @@
     <header>
       <div class="navbar">
         <div class="logo">Local<span>Spot</span></div>
-        <div class="nav-links">
+        <!-- Añadido el botón hamburguesa para móvil -->
+        <button class="hamburger" id="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
           <a href="#home">Inicio</a>
           <a href="#featured">Sitios</a>
           <a href="#about">Nosotros</a>
@@ -51,7 +57,32 @@
         <h2>Sitios Turísticos Destacados</h2>
       </div>
       <div class="featured-places" id="places-container">
-        <!-- Aquí se cargarán dinámicamente los sitios -->
+        <!-- Tarjeta de ejemplo para asegurar que funcione el CSS -->
+        <div class="place-card">
+          <div class="place-img">
+            <img src="assets/images/place1.jpg" alt="Lugar turístico">
+            <div class="place-badge">Popular</div>
+          </div>
+          <div class="place-content">
+            <h3 class="place-name">Playa del Carmen</h3>
+            <div class="place-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="place-info">
+              <div class="place-price">Desde $500</div>
+              <div class="place-availability">Disponible</div>
+            </div>
+            <div class="place-btns">
+              <a href="#" class="place-btn map-btn">Ver en mapa</a>
+              <a href="#" class="place-btn details-btn">Detalles</a>
+            </div>
+          </div>
+        </div>
+        <!-- Fin tarjeta de ejemplo -->
       </div>
     </section>
 
@@ -87,8 +118,8 @@
               <i class="fas fa-map-marker-alt"></i>
             </div>
             <div class="contact-text">
-              <h4 >Dirección</h4>
-              <p >Av. Innovación 123, Ciudad Tecnológica</p>
+              <h4>Dirección</h4>
+              <p>Av. Innovación 123, Ciudad Tecnológica</p>
             </div>
           </div>
           <div class="contact-item">
@@ -165,7 +196,7 @@
       </div>
     </footer>
 
-    <!-- Scripts: main.js y chatbot.js externos, y el script de interactividad aquí -->
+    <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/chatbot.js"></script>
     <script>
@@ -227,6 +258,61 @@
         let scrollY = window.scrollY;
         let opacity = scrollY < fadeUntil ? 1 - scrollY / fadeUntil : 0;
         heroContent.style.opacity = opacity;
+      });
+      
+      // Funcionalidad del menú hamburguesa
+      document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        hamburger.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+        });
+      });
+      
+      // Funcionalidad del chatbot
+      document.addEventListener('DOMContentLoaded', function() {
+        const openChatbot = document.getElementById('open-chatbot');
+        const closeChatbot = document.getElementById('close-chatbot');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const sendMessage = document.getElementById('send-message');
+        const userInput = document.getElementById('user-input');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+        
+        openChatbot.addEventListener('click', function() {
+          chatbotContainer.style.display = 'flex';
+        });
+        
+        closeChatbot.addEventListener('click', function() {
+          chatbotContainer.style.display = 'none';
+        });
+        
+        function addMessage(message, isUser) {
+          const messageDiv = document.createElement('div');
+          messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+          messageDiv.textContent = message;
+          chatbotMessages.appendChild(messageDiv);
+          chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+        
+        sendMessage.addEventListener('click', function() {
+          const message = userInput.value.trim();
+          if (message) {
+            addMessage(message, true);
+            userInput.value = '';
+            
+            // Simular respuesta del bot
+            setTimeout(function() {    
+              addMessage('Gracias por tu mensaje. ¿En qué más puedo ayudarte?', false);
+            }, 1000);
+          }
+        });
+        
+        userInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            sendMessage.click();
+          }
+        });
       });
     </script>
   </body>
