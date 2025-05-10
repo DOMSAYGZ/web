@@ -1073,21 +1073,21 @@ footer::before {
 /* Añadir soporte para modo oscuro del sistema */
 @media (prefers-color-scheme: dark) {
   .form-input {
-    background-color: #2a2a2a;
-    color: white;
-    border-color: #444;
+    background-color: #fff6f6;
+    color: rgb(41, 40, 40);
+    border-color: #e0d9d9;
   }
   
   .place-content {
-    background-color: #222;
+    background-color: #fcfcfc;
   }
   
   .contact-form {
-    background-color: #222;
-    color: #ddd;
+    background-color: #f3f3f3;
+    color: #131212;
   }
   
   .form-group label {
-    color: #ddd;
+    color: #181818;
   }
 }
