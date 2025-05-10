@@ -150,7 +150,7 @@ header {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  color: white;
+  color: rgb(176, 184, 176);
   z-index: 1;
   text-align: center;
   transition: opacity 0.5s ease;  /* Suave transición al hacer scroll */
@@ -162,12 +162,15 @@ header {
 }
 
 .hero p {
+  color: #080808;
   font-size: 1.2rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
   margin: 0 auto 2rem;
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
-
 /* Contenedor de búsqueda */
 .search-container {
   background-color: rgba(255, 255, 255, 0.9);
