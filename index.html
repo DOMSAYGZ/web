@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalSpot - Descubre lugares increíbles cerca de ti</title>
+    <!-- Librería de Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Nuestro CSS modernizado -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">Local<span>Spot</span></div>
+        <div class="nav-links">
+          <a href="#home">Inicio</a>
+          <a href="#featured">Sitios</a>
+          <a href="#about">Nosotros</a>
+          <a href="#contact">Contacto</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section a pantalla completa con carrusel -->
+    <section class="hero" id="home">
+      <div class="hero-carousel">
+        <!-- Inserta las imágenes del carrusel de forma sencilla escribiendo el background-image inline -->
+        <div class="hero-slide" style="background-image: url('assets/images/turismo.png');"></div>
+        <div class="hero-slide" style="background-image: url('assets/images/plaza.png');"></div>
+        <div class="hero-slide" style="background-image: url('assets/images/playa.png');"></div>
+        <!-- Botones de control -->
+        <button class="carousel-control prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-control next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="hero-content">
+        <h1>Descubre lugares increíbles cerca de ti</h1>
+        <p>LocalSpot te ayuda a encontrar los mejores lugares para visitar, comer y disfrutar en tu área.</p>
+        <div class="search-container">
+          <input type="text" class="search-input" placeholder="Buscar lugares, restaurantes, atracciones..." />
+          <button class="search-btn">
+            <i class="fas fa-search"></i> Buscar
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Sitios Destacados -->
+    <section class="section" id="featured">
+      <div class="section-title">
+        <h2>Sitios Turísticos Destacados</h2>
+      </div>
+      <div class="featured-places" id="places-container">
+        <!-- Aquí se cargarán dinámicamente los sitios -->
+      </div>
+    </section>
+
+    <!-- Sección: Sobre Nosotros -->
+    <section class="section" id="about">
+      <div class="about-section">
+        <div class="about-img">
+          <img src="assets/images/logo.png" alt="Sobre nosotros" />
+        </div>
+        <div class="about-content">
+          <h2>Sobre LocalSpot</h2>
+          <p>
+            LocalSpot nació con la misión de conectar a las personas con los lugares más increíbles de su entorno. Explora joyas
+            ocultas y sitios emblemáticos de tu ciudad.
+          </p>
+          <p>
+            Nuestro equipo de apasionados exploradores se asegura de ofrecerte información precisa y actualizada, para que vivas
+            experiencias inolvidables.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Contacto -->
+    <section class="section" id="contact">
+      <div class="section-title">
+        <h2>Contacto</h2>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4 >Dirección</h4>
+              <p >Av. Innovación 123, Ciudad Tecnológica</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <p>info@localspot.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input type="text" id="name" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea id="message" class="form-input" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ChatBot -->
+    <div id="chatbot-container" class="chatbot-container">
+      <div class="chatbot-header">
+        <h3>Asistente LocalSpot</h3>
+        <button id="close-chatbot"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div class="bot-message">
+          ¡Hola! Soy el asistente virtual de LocalSpot. Pregúntame sobre nuestros sitios turísticos.
+        </div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="user-input" placeholder="Escribe tu pregunta..." />
+        <button id="send-message"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+    <button id="open-chatbot" class="chatbot-toggle"><i class="fas fa-comment"></i></button>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>LocalSpot</h3>
+          <p>Descubre lugares increíbles cerca de ti.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Enlaces rápidos</h3>
+          <div class="footer-links">
+            <a href="#home">Inicio</a>
+            <a href="#featured">Sitios destacados</a>
+            <a href="#about">Sobre nosotros</a>
+            <a href="#contact">Contacto</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 LocalSpot. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts: main.js y chatbot.js externos, y el script de interactividad aquí -->
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script>
+      // Inicializar el carrusel del hero
+      function initHeroCarousel() {
+        const slides = document.querySelectorAll('.hero-slide');
+        const prevBtn = document.querySelector('.carousel-control.prev');
+        const nextBtn = document.querySelector('.carousel-control.next');
+        let currentSlide = 0;
+  
+        slides[currentSlide].classList.add('active');
+  
+        function showSlide(index) {
+          slides[currentSlide].classList.remove('active');
+          currentSlide = index;
+          slides[currentSlide].classList.add('active');
+        }
+  
+        function showNext() {
+          let nextIndex = (currentSlide + 1) % slides.length;
+          showSlide(nextIndex);
+        }
+  
+        function showPrev() {
+          let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+          showSlide(prevIndex);
+        }
+  
+        nextBtn.addEventListener('click', showNext);
+        prevBtn.addEventListener('click', showPrev);
+  
+        // Cambio automático cada 5 segundos
+        setInterval(showNext, 5000);
+      }
+  
+      document.addEventListener('DOMContentLoaded', initHeroCarousel);
+  
+      // Efecto Scroll Reveal para secciones
+      function revealOnScroll() {
+        const sections = document.querySelectorAll('.section');
+        const windowHeight = window.innerHeight;
+  
+        sections.forEach((section) => {
+          const elementTop = section.getBoundingClientRect().top;
+          const revealPoint = 150;
+          if (elementTop < windowHeight - revealPoint) {
+            section.classList.add('visible');
+          }
+        });
+      }
+  
+      window.addEventListener('scroll', revealOnScroll);
+      document.addEventListener('DOMContentLoaded', revealOnScroll);
+  
+      // Efecto de Fade del hero content al hacer scroll
+      window.addEventListener('scroll', () => {
+        const heroContent = document.querySelector('.hero-content');
+        const fadeUntil = 300;
+        let scrollY = window.scrollY;
+        let opacity = scrollY < fadeUntil ? 1 - scrollY / fadeUntil : 0;
+        heroContent.style.opacity = opacity;
+      });
+    </script>
+  </body>
+</html>
